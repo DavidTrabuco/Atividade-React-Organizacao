@@ -1,6 +1,4 @@
-export default function Index() {
-
-    const HourOpen = () => {
+  const HourOpen = () => {
         return (
         <div>
             <h3>Pizzaria David </h3>
@@ -53,6 +51,10 @@ export default function Index() {
         </>
         )
     }
+
+export default function Index() {
+
+ 
     return (
 
         <footer>
