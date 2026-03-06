@@ -1,5 +1,5 @@
 import Footer from '../components/Footer'
-import Header from '../components/Header'
+import Header from '../components/Header/NavBar/Index'
 import Section from '../components/Section'
 
 
@@ -11,7 +11,7 @@ export default function Home() {
             <Header />
             <Section />
             <Footer />
-            
+              
         
          
 
