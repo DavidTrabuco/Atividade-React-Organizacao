@@ -1,6 +1,6 @@
 import { NavBarStyles } from "./styles.jsx"
 import logo from "../../../share/Logo/Logo.png";
-import "./Navbar.css"
+
 
 
 // Aqui deu error de export default , mandou pra declarar o reservation fora do NavBar e voltou a funcionar 
@@ -41,13 +41,13 @@ export default function Index() {
                 </li>
 
                 <li>
-                    
+
                     <Reservation />
                 </li>
 
             </ul>
             </nav >
-          //default ele se distribui os 3 grupos ,no caso a logo na esquerda ,os itens no meio  e o botao na direita ,diante disso o nav center deiixa agrupado os links no meio !!!  
+          {/* default ele se distribui os 3 grupos ,no caso a logo na esquerda ,os itens no meio  e o botao na direita ,diante disso o nav center deiixa agrupado os links no meio !!! */}
 
         </>
 
