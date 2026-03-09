@@ -24,12 +24,11 @@ export default function Index() {
             <nav className={NavBarStyles.backgroundColor}>
             <ul className={NavBarStyles.default}>
 
-                {/* ESQUERDA - Logo */}
+                
                 <li>
                     <img src={logo} alt="Logo da Pizzaria" className={NavBarStyles.NavbarLogo} />
                 </li>
 
-                {/* CENTRO - Itens de navegação */}
                 <li>
                     <ul className={NavBarStyles.navCenter}>
                         <li><a href="#" className={`${NavBarStyles.itemMenu} ${NavBarStyles.itemTheme}`}>Home</a></li>
@@ -41,14 +40,14 @@ export default function Index() {
                     </ul>
                 </li>
 
-                {/* DIREITA - Botão */}
                 <li>
+                    
                     <Reservation />
                 </li>
 
             </ul>
             </nav >
-
+          //default ele se distribui os 3 grupos ,no caso a logo na esquerda ,os itens no meio  e o botao na direita ,diante disso o nav center deiixa agrupado os links no meio !!!  
 
         </>
 

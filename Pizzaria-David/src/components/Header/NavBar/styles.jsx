@@ -8,4 +8,3 @@ export const NavBarStyles = {
     NavbarLogo:  "h-10 w-auto transition-all duration-300 hover:scale-110 cursor-pointer"
 }
 
-//default ele se distribui os 3 grupos ,no caso a logo na esquerda ,os itens no meio  e o botao na direita ,diante disso o nav center deiixa agrupado os links no meio !!! 
