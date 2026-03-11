@@ -1,4 +1,7 @@
 import { AboutUsStyles } from "./styles";
+import PhotoPizza from "../../../share/PizzaPhoto/PhotoPizza.jpg";
+import PhotoCoffe from "../../../share/PizzaPhoto/PhotoCoffe.jpg";
+import PhotoMaking from "../../../share/PizzaPhoto/PhotoMaking.jpg";
 
 export default function AboutUs() {
   return (
@@ -25,19 +28,19 @@ export default function AboutUs() {
         </div>
 
         <div className={AboutUsStyles.imageBlock}>
-          <img src="" alt="Chef preparing dish" className={AboutUsStyles.image} />
+          <img src={PhotoPizza} alt="Chef preparing dish" className={AboutUsStyles.image} />
         </div>
       </div>
 
       {/* Bloco 2 - Coffee Menu  */}
       <div className={AboutUsStyles.row}>
         <div className={AboutUsStyles.imageBlock}>
-          <img src="" alt="Chef plating food" className={AboutUsStyles.image} />
+          <img src={PhotoCoffe} alt="Chef plating food" className={AboutUsStyles.image} />
         </div>
 
         <div className={AboutUsStyles.textBlock}>
           <span className={AboutUsStyles.label}>COFFEE MENU</span>
-          <h3 className={AboutUsStyles.title}>Quality Kava Beans</h3>
+          <h3 className={AboutUsStyles.title}>Quality Kava Beans with our Barist</h3>
           <p className={AboutUsStyles.paragraph}>
             Lorem ipsum dolor sit amet consectetur. Dolor elit vitae nunc varius.
             Facilisis eget cras semper sit enim. Turpis aliquet at ac eu donec.
@@ -52,7 +55,7 @@ export default function AboutUs() {
         <div className={AboutUsStyles.textBlock}>
           <span className={AboutUsStyles.label}>OUR TEAM</span>
           <h3 className={AboutUsStyles.title}>
-            Use the Tips & Recipes of Our Barista
+            Use the Tips & Recipes of Our Pizzaiolo
           </h3>
           <p className={AboutUsStyles.paragraph}>
             Lorem ipsum dolor sit amet consectetur. Dolor elit vitae nunc varius.
@@ -63,7 +66,7 @@ export default function AboutUs() {
         </div>
 
         <div className={AboutUsStyles.imageBlock}>
-          <img src="" alt="Barista making coffee" className={AboutUsStyles.image} />
+          <img src={PhotoMaking} alt="Barista making coffee" className={AboutUsStyles.image} />
         </div>
       </div>
 
