@@ -32,12 +32,12 @@ export default function Index() {
 
                 <li>
                     <ul className={NavBarStyles.navCenter}>
-                        <li><a href="#" className={`${NavBarStyles.itemMenu} ${NavBarStyles.itemTheme}`}>Home</a></li>
-                        <li><a href="#" className={`${NavBarStyles.itemMenu} ${NavBarStyles.itemTheme}`}>About Us</a></li>
-                        <li><a href="#" className={`${NavBarStyles.itemMenu} ${NavBarStyles.itemTheme}`}>Menu</a></li>
-                        <li><a href="#" className={`${NavBarStyles.itemMenu} ${NavBarStyles.itemTheme}`}>App</a></li>
-                        <li><a href="#" className={`${NavBarStyles.itemMenu} ${NavBarStyles.itemTheme}`}>Newsletter</a></li>
-                        <li><a href="#" className={`${NavBarStyles.itemMenu} ${NavBarStyles.itemTheme}`}>Contact</a></li>
+                        <li><a href="#" className={NavBarStyles.itemMenuTheme}>Home</a></li>
+                        <li><a href="#" className={NavBarStyles.itemMenuTheme}>About Us</a></li>
+                        <li><a href="#" className={NavBarStyles.itemMenuTheme}>Menu</a></li>
+                        <li><a href="#" className={NavBarStyles.itemMenuTheme}>App</a></li>
+                        <li><a href="#" className={NavBarStyles.itemMenuTheme}>Newsletter</a></li>
+                        <li><a href="#" className={NavBarStyles.itemMenuTheme}>Contact</a></li>
                     </ul>
                 </li>
 
