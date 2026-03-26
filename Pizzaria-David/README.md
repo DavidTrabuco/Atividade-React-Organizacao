@@ -1,16 +1,56 @@
-# React + Vite
+🌐 Projeto – Pizza House
+---
+Este projeto foi desenvolvido com o objetivo de simular o site de uma pizzaria, aplicando na prática os conhecimentos adquiridos em desenvolvimento front-end. A aplicação conta com navegação entre páginas, cardápio e uma interface voltada para a experiência do cliente.
+O foco do projeto é a construção de uma aplicação React com múltiplas rotas, utilizando React Router para gerenciar a navegação, e proporcionando uma experiência fluida e agradável ao usuário.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🛠 Tecnologias e Ferramentas Utilizadas
+----
+React – Biblioteca para construção de interfaces
+React Router DOM – Gerenciamento de rotas e navegação entre páginas
+JavaScript (ES6+)
+HTML5 & CSS3
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+📚 Conceitos Aplicados
 
-## React Compiler
+----
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Durante o desenvolvimento do projeto, foram aplicados os seguintes conceitos:
+Criação e organização de pastas no React 
+Criação e organização de rotas com React Router
+Navegação entre páginas sem recarregamento (SPA)
+Componentização e reutilização de componentes com React
+Organização de estrutura de pastas em projetos React
+Gerenciamento de estado com useState
+Renderização condicional de componentes
+Boas práticas de desenvolvimento front-end
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+📺 Referências
+------
+Para a construção do projeto, utilizei como apoio:
+
+Documentação oficial do React
+Documentação oficial do React Router
+Tutoriais e vídeos educacionais no YouTube sobre:
+
+React Router na prática
+Criação de SPAs com React
+Componentização e boas práticas
+
+
+
+
+📱 Responsividade do Projeto
+----------
+O projeto foi desenvolvido com foco em responsividade, garantindo uma boa experiência em diferentes dispositivos:
+
+🖥 Desktop
+💻 Notebook
+📱 Smartphone
+📟 Tablet
+
+
+📁 Estrutura do Projeto
+![WhatsApp Image 2026-03-23 at 16 47 25](https://github.com/user-attachments/assets/6ff85708-161b-48c4-9ce5-2a135b4ba056)
+

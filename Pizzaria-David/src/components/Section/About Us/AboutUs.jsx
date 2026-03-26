@@ -1,7 +1,7 @@
 import { AboutUsStyles } from "./styles";
-import PhotoPizza from "../../../share/PizzaPhoto/PhotoPizza.jpg";
-import PhotoCoffe from "../../../share/PizzaPhoto/PhotoCoffe.jpg";
-import PhotoMaking from "../../../share/PizzaPhoto/PhotoMaking.jpg";
+import PhotoPizza from "../../../share/Photo/PhotoPizza.jpg";
+import PhotoCoffe from "../../../share/Photo/PhotoCoffe.jpg";
+import PhotoMaking from "../../../share/Photo/PhotoMaking.jpg";
 
 export default function AboutUs() {
   return (

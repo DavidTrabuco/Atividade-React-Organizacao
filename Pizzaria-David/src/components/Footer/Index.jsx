@@ -1,72 +1,76 @@
-  const HourOpen = () => {
-        return (
-        <div>
-            <h3>Pizzaria David </h3>
-            <p>Fast Food Restaurant</p>
-            <p>Tuesday – Saturday: 12:00pm – 23:00pm<br />Closed on Sunday</p>
-            <p>5 star rated on TripAdvisor</p>
+import { FooterStyle } from "../Footer/style.jsx";
+
+const HourOpen = () => {
+    return (
+        <div className={FooterStyle.hourCard}>
+            <h3 className={FooterStyle.hourBrand}>Pizzaria David </h3>
+            <p className={FooterStyle.hourSub}>Fast Food Restaurant</p>
+            <p className={FooterStyle.hourSchedule}>Tuesday – Saturday: 12:00pm – 23:00pm<br />Closed on Sunday</p>
+            <p className={FooterStyle.hourRating}>5 star rated on TripAdvisor</p>
         </div>
-        )
-    }
+    )
+}
 
 
-    const About = () => {
-        return (
+const About = () => {
+    return (
         <>
-            <h4>About</h4>
-            <ul>
-                <li><a href="#">Fredoka One</a></li>
-                <li><a href="#">Special Dish</a></li>
-                <li><a href="#">Reservation</a></li>
-                <li><a href="#">Contact</a></li>
+            <h4 className={FooterStyle.colTitle}>About</h4>
+            <ul className={FooterStyle.colList}>
+                <li className={FooterStyle.colItemTheme}><a href="#">Fredoka One</a></li>
+                <li className={FooterStyle.colItemTheme}><a href="#">Special Dish</a></li>
+                <li className={FooterStyle.colItemTheme}><a href="#">Reservation</a></li>
+                <li className={FooterStyle.colItemTheme}><a href="#">Contact</a></li>
             </ul>
         </>
-        )
-    }
+    )
+}
 
-    const Menu = () => {
-        return (
+const Menu = () => {
+    return (
         <>
-        <h4>Menu</h4>
-            <ul>
-                <li><a href="#">Steaks</a></li>
-                <li><a href="#">Burgers</a></li>
-                <li><a href="#">Coctails</a></li>
-                <li><a href="#">Bar B Q</a></li>
-                <li><a href="#">Desserts</a></li>
+            <h4 className={FooterStyle.colTitle}>Menu</h4>
+            <ul className={FooterStyle.colList}>
+                <li className={FooterStyle.colItemTheme}><a href="#">Steaks</a></li>
+                <li className={FooterStyle.colItemTheme}><a href="#">Burgers</a></li>
+                <li className={FooterStyle.colItemTheme}><a href="#">Coctails</a></li>
+                <li className={FooterStyle.colItemTheme}><a href="#">Bar B Q</a></li>
+                <li className={FooterStyle.colItemTheme}><a href="#">Desserts</a></li>
             </ul></>
-        )
-    }
+    )
+}
 
 
-    const Newsletter = () => {
-        return (
+const Newsletter = () => {
+    return (
         <>
             <div>
-        <h4>Newsletter</h4>
-        <p>Get recent news and updates.</p>
-        <input type="email" placeholder="Email Address" required />
-        <button type="submit">Subscribe</button>
-      </div>
+                <h4 className={FooterStyle.newsletterTitle}>Newsletter</h4>
+                <p className={FooterStyle.newsletterText}>Get recent news and updates.</p>
+                <input  className={FooterStyle.newsletterInput} type="email" placeholder="Email Address" required />
+                <button type="submit" className={FooterStyle.newsletterBtn}>Subscribe</button>
+            </div>
         </>
-        )
-    }
+    )
+}
 
 export default function Index() {
 
- 
-    
+
+
     return (
 
-        <footer>
+        <footer className={FooterStyle.footer} >
 
-            <HourOpen />
-            <About />
-            <Menu />
-            <Newsletter />
+            <div className={FooterStyle.grid}>
+                <HourOpen />
+                <About />
+                <Menu />
+                <Newsletter />
 
+            </div>
 
-            <p>© 2024 Pizzaria David . All rights reserved.</p>
+            <p className={FooterStyle.copyright}>© 2024 Pizzaria David . All rights reserved.</p>
             
         </footer>
     )

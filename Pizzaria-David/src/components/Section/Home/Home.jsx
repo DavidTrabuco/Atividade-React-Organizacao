@@ -1,3 +1,4 @@
+import { NavLink } from "react-router";
 import { HomeStyles } from "./style";
 
 export default function Home() {
@@ -14,8 +15,8 @@ export default function Home() {
             <h1 className={HomeStyles.title}>Welcome to Our Pizzaria</h1>
 
             <div className={HomeStyles.buttonGroup}>
-               <button className={HomeStyles.buttonBookTable}>BOOK A TABLE</button>
-               <button className={HomeStyles.buttonOpenMenu}>OPEN MENU</button>
+               <button className={HomeStyles.buttonBookTable}><NavLink to="/reservation">BOOK A TABLE</NavLink></button>
+               <button className={HomeStyles.buttonOpenMenu}><NavLink to="/menu">OPEN MENU</NavLink></button>
             </div>
          </div>
 

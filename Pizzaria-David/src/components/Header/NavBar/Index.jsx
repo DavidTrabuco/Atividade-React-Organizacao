@@ -1,57 +1,81 @@
 import { NavBarStyles } from "./styles.jsx"
 import logo from "../../../share/Logo/Logo.png";
-/*Aprender com Jorge sobre esses import */
+import { NavLink } from "react-router";
+import { useState } from 'react'
 
-
-
-// Aqui deu error de export default , mandou pra declarar o reservation fora do NavBar e voltou a funcionar 
-const Reservation = () => {
-    return (
-        <>
-
-            <button className={NavBarStyles.buttonReservation}>Reservation</button>
-        </>
-
-    )
-}
+const links = [
+   { nome: "Home",       to: "/" },
+   { nome: "About Us",   to: "/about" },
+   { nome: "Menu",       to: "/menu" },
+   { nome: "App",        to: "/app" },
+   { nome: "Newsletter", to: "/newsletter" },
+   { nome: "Contact",    to: "/contact" },
+]
 
 export default function Index() {
 
-
+    const [menuAberto, setMenuAberto] = useState(false)
+    const fecharMenu = () => setMenuAberto(false)
 
     return (
-
         <>
             <nav className={NavBarStyles.backgroundColor}>
-            <ul className={NavBarStyles.default}>
+                <ul className={NavBarStyles.default}>
 
-                
-                <li>
-                    <img src={logo} alt="Logo da Pizzaria" className={NavBarStyles.NavbarLogo} />
-                </li>
+                    {/* Logo */}
+                    <li>
+                        <NavLink to="/">
+                            <img src={logo} alt="Logo da Pizzaria" className={NavBarStyles.NavbarLogo} />
+                        </NavLink>
+                    </li>
 
-                <li>
-                    <ul className={NavBarStyles.navCenter}>
-                        <li><a href="#" className={NavBarStyles.itemMenuTheme}>Home</a></li>
-                        <li><a href="#" className={NavBarStyles.itemMenuTheme}>About Us</a></li>
-                        <li><a href="#" className={NavBarStyles.itemMenuTheme}>Menu</a></li>
-                        <li><a href="#" className={NavBarStyles.itemMenuTheme}>App</a></li>
-                        <li><a href="#" className={NavBarStyles.itemMenuTheme}>Newsletter</a></li>
-                        <li><a href="#" className={NavBarStyles.itemMenuTheme}>Contact</a></li>
-                    </ul>
-                </li>
+                    {/* Links desktop */}
+                    <li>
+                        <ul className={NavBarStyles.navCenter}>
+                            {links.map((link) => (
+                                <li key={link.to}>
+                                    <NavLink to={link.to} className={NavBarStyles.itemMenuTheme}>
+                                        {link.nome}
+                                    </NavLink>
+                                </li>
+                            ))}
+                        </ul>
+                    </li>
 
-                <li>
+                    
+                    <li>
+                        <NavLink to="/reservation">
+                            <button className={NavBarStyles.button}>Reservation</button>
+                        </NavLink>
 
-                    <Reservation />
-                </li>
+                        <button
+                            className={NavBarStyles.hamburger}
+                            onClick={() => setMenuAberto(!menuAberto)}
+                        >
+                            <span className={NavBarStyles.hamburgerLine}></span>
+                            <span className={NavBarStyles.hamburgerLine}></span>
+                            <span className={NavBarStyles.hamburgerLine}></span>
+                        </button>
+                    </li>
 
-            </ul>
-            </nav >
-          {/* default ele se distribui os 3 grupos ,no caso a logo na esquerda ,os itens no meio  e o botao na direita ,diante disso o nav center deiixa agrupado os links no meio !!! */}
+                </ul>
 
+                {/* Menu mobile */}
+                {menuAberto && (
+                    <div className={NavBarStyles.mobileMenu}>
+                        {links.map((link) => (
+                            <NavLink
+                                key={link.to}
+                                to={link.to}
+                                className={NavBarStyles.mobileLink}
+                                onClick={fecharMenu}
+                            >
+                                {link.nome}
+                            </NavLink>
+                        ))}
+                    </div>
+                )}
+            </nav>
         </>
-
-
     )
 }

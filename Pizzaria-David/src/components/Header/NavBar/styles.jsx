@@ -1,12 +1,28 @@
-export const NavBarStyles = {
-    backgroundColor: "bg-red-950 w-full",
-    default: "mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8 h-20",
-    navCenter: "flex items-center gap-8",
-    itemMenu: "font-medium text-lg transition-all duration-300 hover:-translate-y-1 inline-block",
-    itemTheme: "text-white hover:text-rose-500",
-    buttonReservation: "rounded-full bg-rose-600 px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:bg-rose-700 hover:scale-105 hover:-translate-y-1 hover:shadow-rose-500/50 hover:shadow-lg cursor-pointer",
-    NavbarLogo: "h-35 w-auto transition-all duration-300 hover:scale-110 cursor-pointer"
-}
-NavBarStyles.itemMenuTheme = `${NavBarStyles.itemMenu} ${NavBarStyles.itemTheme}`
 
-//default ele se distribui os 3 grupos ,no caso a logo na esquerda ,os itens no meio  e o botao na direita ,diante disso o nav center deiixa agrupado os links no meio !!! 
+export const NavBarStyles = {
+  backgroundColor: "bg-gradient-to-r from-red-950 to-red-900 w-full relative z-50",
+
+  default: "mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8 h-20",
+
+  
+  navCenter: "hidden md:flex items-center gap-8",
+
+  itemMenu: "font-medium text-lg transition-all duration-300 hover:-translate-y-1 inline-block",
+  itemTheme: "text-white hover:text-orange-500",
+
+ 
+  button: "hidden md:block rounded-full bg-gradient-to-r from-orange-500 px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:bg-gradient-to-r from-orange-500 hover:scale-105 hover:-translate-y-1 hover:shadow-orange-500/50 hover:shadow-lg cursor-pointer",
+
+  NavbarLogo: "h-30 w-auto transition-all duration-300 hover:scale-110 cursor-pointer",
+
+
+  hamburger: "md:hidden flex flex-col justify-center items-center gap-1.5 w-10 h-10 cursor-pointer",
+  hamburgerLine: "w-6 h-0.5 bg-white rounded-full transition-all duration-300",
+
+  
+  mobileMenu: "md:hidden absolute top-20 left-0 w-full bg-gradient-to-r from-red-900 border-t border-white/10 px-6 py-6 flex flex-col gap-5 shadow-xl shadow-orange/50",
+
+  mobileLink: "text-orange text-lg font-medium hover:text-orange-400 transition-colors duration-200",
+}
+
+NavBarStyles.itemMenuTheme = `${NavBarStyles.itemMenu} ${NavBarStyles.itemTheme}`
