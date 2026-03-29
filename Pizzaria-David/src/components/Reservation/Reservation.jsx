@@ -8,6 +8,7 @@ export default function Reservation() {
     const [dataHorario, setDataHorario] = useState('');
     const [contato, setContato] = useState('');
     const [erros, setErros] = useState({});
+    const [enviando, setEnviando] = useState(false)
 
     function validar() {
         const novosErros = {};
@@ -46,23 +47,53 @@ export default function Reservation() {
             novosErros.contato = 'Contato é obrigatório';
         } else if (contato.length < 10) {
             novosErros.contato = 'Telefone precisa ter pelo menos 10 dígitos';
+        }else if (contato.length > 10){
+            novosErros.contato = 'Telefone tem apenas 10 números .'
         }
 
         return novosErros;
     }
 
     function handleSubmit(e) {
-        e.preventDefault();
-        const novosErros = validar();
+    e.preventDefault();
+    const novosErros = validar();
 
-        if (Object.keys(novosErros).length > 0) {
-            setErros(novosErros);
-        } else {
-            setErros({});
-            alert('Reserva feita com sucesso!');
-            console.log({ nome, pessoas, dataHorario, contato });
-        }
+    if (Object.keys(novosErros).length > 0) {
+        setErros(novosErros);
+        return;
     }
+
+    setErros({});
+    setEnviando(true);
+
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            nome: nome,
+            pessoas: Number(pessoas),
+            dataHorario: dataHorario,
+            contato: contato,
+        }),
+    })
+        .then((resposta) => resposta.json())
+        .then((dados) => {
+            console.log('Reserva criada:', dados);
+            alert('Reserva feita com sucesso!');
+            setNome('');
+            setPessoas('');
+            setDataHorario('');
+            setContato('');
+            setEnviando(false);
+        })
+        .catch((erro) => {
+            console.log('Error ao fazer a reserva ', erro);
+            alert('Erro ao reservar. Tente novamente!');
+            setEnviando(false);
+        });
+}
 
     return (
         <>
@@ -119,7 +150,9 @@ export default function Reservation() {
                             {erros.contato && <span style={{ color: 'red' }}>{erros.contato}</span>}
                         </div>
 
-                        <button className={ReservationStyle.button} type="submit">Reservar</button>
+                        <button className={ReservationStyle.button} type="submit" disabled={enviando}>
+                            {enviando ? 'Enviando...' : 'Reservar'}
+                        </button>
                     </form>
                     <button className={ReservationStyle.button}><NavLink to="/">Voltar para a página inicial</NavLink></button>
 
