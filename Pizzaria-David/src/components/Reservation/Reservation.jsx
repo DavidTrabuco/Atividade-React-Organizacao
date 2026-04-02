@@ -1,14 +1,17 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { NavLink } from "react-router";
 import { ReservationStyle } from "./style";
-
+import { mascaraTelefone } from "./utils";
 export default function Reservation() {
     const [nome, setNome] = useState('');
     const [pessoas, setPessoas] = useState('');
-    const [dataHorario, setDataHorario] = useState('');
+    const [data, setData] = useState('');
+    const [horario, setHorario] = useState('');
     const [contato, setContato] = useState('');
     const [erros, setErros] = useState({});
     const [enviando, setEnviando] = useState(false)
+    const dataRef = useRef(null);
+    const horarioRef = useRef(null);
 
     function validar() {
         const novosErros = {};
@@ -27,28 +30,41 @@ export default function Reservation() {
             novosErros.pessoas = 'Máximo de 20 pessoas por reserva';
         }
 
-        if (!dataHorario) {
-            novosErros.dataHorario = 'Data e horário são obrigatórios';
+        if (!data) {
+            novosErros.data = 'Data é obrigatória';
         } else {
-            const dataSelecionada = new Date(dataHorario);
-            const agora = new Date();
+            const hoje = new Date();
+            hoje.setHours(0, 0, 0, 0);
+            const dataSelecionada = new Date(data + 'T00:00:00');
+            if (dataSelecionada < hoje) {
+                novosErros.data = 'A data não pode ser no passado';
+            }
+        }
 
-            if (dataSelecionada < agora) {
-                novosErros.dataHorario = 'A data não pode ser no passado';
-            } else {
-                const hora = dataSelecionada.getHours();
-                if (hora < 18 || hora >= 23) {
-                    novosErros.dataHorario = 'Horário de funcionamento: 18h às 23h';
+        if (!horario) {
+            novosErros.horario = 'Horário é obrigatório';
+        } else {
+            const [hora, minuto] = horario.split(':').map(Number);
+            if (hora < 18 || hora >= 23 || (hora === 22 && minuto > 59)) {
+                novosErros.horario = 'Horário de funcionamento: 18h às 23h';
+            }
+            if (data) {
+                const agendado = new Date(`${data}T${horario}`);
+                if (agendado < new Date()) {
+                    novosErros.horario = 'O horário não pode ser no passado';
                 }
             }
         }
 
         if (!contato.trim()) {
             novosErros.contato = 'Contato é obrigatório';
-        } else if (contato.length < 10) {
-            novosErros.contato = 'Telefone precisa ter pelo menos 10 dígitos';
-        }else if (contato.length > 10){
-            novosErros.contato = 'Telefone tem apenas 10 números .'
+        } else {
+            const apenasDigitos = contato.replace(/\D/g, '');
+            if (apenasDigitos.length < 10) {
+                novosErros.contato = 'Telefone precisa ter pelo menos 10 dígitos';
+            } else if (apenasDigitos.length > 11) {
+                novosErros.contato = 'Telefone inválido';
+            }
         }
 
         return novosErros;
@@ -57,8 +73,9 @@ export default function Reservation() {
     function handleSubmit(e) {
     e.preventDefault();
     const novosErros = validar();
-
-    if (Object.keys(novosErros).length > 0) {
+    
+    const erros = Object.keys(novosErros)
+    if (erros.length > 0) {
         setErros(novosErros);
         return;
     }
@@ -74,7 +91,8 @@ export default function Reservation() {
         body: JSON.stringify({
             nome: nome,
             pessoas: Number(pessoas),
-            dataHorario: dataHorario,
+            data: data,
+            horario: horario,
             contato: contato,
         }),
     })
@@ -84,7 +102,8 @@ export default function Reservation() {
             alert('Reserva feita com sucesso!');
             setNome('');
             setPessoas('');
-            setDataHorario('');
+            setData('');
+            setHorario('');
             setContato('');
             setEnviando(false);
         })
@@ -129,23 +148,42 @@ export default function Reservation() {
                             {erros.pessoas && <span style={{ color: 'red' }}>{erros.pessoas}</span>}
                         </div>
                         <div className={ReservationStyle.inputGroup}>
-                            <label className={ReservationStyle.inputLabel}>Data e Horário</label>
+                            <label className={ReservationStyle.inputLabel}>Data</label>
                             <input
                                 className={ReservationStyle.input}
-                                type="datetime-local"
-                                value={dataHorario}
-                                onChange={(e) => setDataHorario(e.target.value)}
+                                type="date"
+                                min={new Date().toISOString().split('T')[0]}
+                                value={data}
+                                ref={dataRef}
+                                onClick={() => dataRef.current.showPicker()}
+                                onChange={(e) => setData(e.target.value)}
+                                onKeyDown={(e) => e.preventDefault()}
                             />
-                            {erros.dataHorario && <span style={{ color: 'red' }}>{erros.dataHorario}</span>}
+                            {erros.data && <span style={{ color: 'red' }}>{erros.data}</span>}
+                        </div>
+                        <div className={ReservationStyle.inputGroup}>
+                            <label className={ReservationStyle.inputLabel}>Horário</label>
+                            <input
+                                className={ReservationStyle.input}
+                                type="time"
+                                min="18:00"
+                                max="22:59"
+                                value={horario}
+                                ref={horarioRef}
+                                onClick={() => horarioRef.current.showPicker()}
+                                onChange={(e) => setHorario(e.target.value)}
+                                onKeyDown={(e) => e.preventDefault()}
+                            />
+                            {erros.horario && <span style={{ color: 'red' }}>{erros.horario}</span>}
                         </div>
                         <div className={ReservationStyle.inputGroup}>
                             <label className={ReservationStyle.inputLabel}>Contato</label>
                             <input
                                 className={ReservationStyle.input}
                                 type="tel"
-                                placeholder="(xx) xxxx-xxxx"
+                                placeholder="(XX) XXXXX-XXXX"
                                 value={contato}
-                                onChange={(e) => setContato(e.target.value)}
+                                onChange={(e) => setContato(mascaraTelefone(e.target.value))}
                             />
                             {erros.contato && <span style={{ color: 'red' }}>{erros.contato}</span>}
                         </div>
