@@ -1,6 +1,10 @@
 import {ContactStyles} from "./style.jsx";
  
+import { useEndereco } from '../../../hooks/useEndereco';
+
 export default function Contact() {
+  const { endereco, loading, error } = useEndereco();
+
   return (
     <section className={ContactStyles.section}>
  
@@ -79,7 +83,18 @@ export default function Contact() {
  
       {/* Endereço */}
       <div className={ContactStyles.footer}>
-        <p>Endereço: Rua das Pizzas, 123 – Pituba, Salvador – BA</p>
+        {loading ? (
+          <p>Carregando endereço...</p>
+        ) : error ? (
+          <p>Erro ao obter endereço: {error}</p>
+        ) : endereco ? (
+          <p>
+            Endereço: {endereco.logradouro}, {endereco.numero}
+            {endereco.complemento ? ` - ${endereco.complemento}` : ''} – {endereco.bairro}, {endereco.cidade} – {endereco.estado}
+          </p>
+        ) : (
+          <p>Endereço: Rua das Pizzas, 123 – Pituba, Salvador – BA</p>
+        )}
         <p>Estamos esperando seu pedido!</p>
       </div>
  
