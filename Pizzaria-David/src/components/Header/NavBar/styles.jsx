@@ -11,7 +11,11 @@ export const NavBarStyles = {
   itemTheme: "text-white hover:text-orange-500",
 
  
-  button: "hidden md:block rounded-full bg-gradient-to-r from-orange-500 px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:bg-gradient-to-r from-orange-500 hover:scale-105 hover:-translate-y-1 hover:shadow-orange-500/50 hover:shadow-lg cursor-pointer",
+  button: "hidden md:block rounded-full bg-gradient-to-r from-orange-500 to-red-600 px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-orange-500/50 hover:shadow-lg cursor-pointer",
+
+  buttonLogin: "hidden md:block rounded-full bg-transparent border border-white/40 px-6 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:border-orange-400 hover:text-orange-400 hover:scale-105 hover:-translate-y-1 cursor-pointer",
+
+  buttonGroup: "flex items-center gap-3",
 
   NavbarLogo: "h-30 w-auto transition-all duration-300 hover:scale-110 cursor-pointer",
 

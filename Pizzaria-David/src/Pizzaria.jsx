@@ -12,6 +12,8 @@ import AppPage from './pages/AppPage'
 import NewsletterPage from './pages/NewsletterPage'
 import ContactPage from './pages/ContactPage'
 import Reservation from './components/Reservation/Reservation'
+import Login from './components/Login/Login'
+import AdminLogin from './components/AdminLogin/AdminLogin'
 
 
 function App() {
@@ -25,7 +27,8 @@ function App() {
                 <Route path="/newsletter" element={<NewsletterPage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/reservation" element={<Reservation />} />
-
+                <Route path="/login" element={<Login />} />
+                <Route path="/admin/login" element={<AdminLogin />} />
             </Routes>
         </div>
     )

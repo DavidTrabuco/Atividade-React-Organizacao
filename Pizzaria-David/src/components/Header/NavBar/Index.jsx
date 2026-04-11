@@ -4,12 +4,12 @@ import { NavLink } from "react-router";
 import { useState } from 'react'
 
 const links = [
-   { nome: "Home",       to: "/" },
-   { nome: "About Us",   to: "/about" },
-   { nome: "Menu",       to: "/menu" },
-   { nome: "App",        to: "/app" },
-   { nome: "Newsletter", to: "/newsletter" },
-   { nome: "Contact",    to: "/contact" },
+    { nome: "Home", to: "/" },
+    { nome: "About Us", to: "/about" },
+    { nome: "Menu", to: "/menu" },
+    { nome: "App", to: "/app" },
+    { nome: "Newsletter", to: "/newsletter" },
+    { nome: "Contact", to: "/contact" },
 ]
 
 export default function Index() {
@@ -42,10 +42,14 @@ export default function Index() {
                         </ul>
                     </li>
 
-                    
-                    <li>
+
+                    <li className={NavBarStyles.buttonGroup}>
                         <NavLink to="/reservation">
                             <button className={NavBarStyles.button}>Reservation</button>
+                        </NavLink>
+
+                        <NavLink to="/Login">
+                            <button className={NavBarStyles.buttonLogin}>Fazer Login</button>
                         </NavLink>
 
                         <button
@@ -57,6 +61,7 @@ export default function Index() {
                             <span className={NavBarStyles.hamburgerLine}></span>
                         </button>
                     </li>
+                    
 
                 </ul>
 
