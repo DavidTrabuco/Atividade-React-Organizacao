@@ -12,7 +12,7 @@ export default function PedidoConfirmado({ pedido }) {
 
                 <div className={S.header}>
                     <span className={S.emoji}>🍕</span>
-                    <p className={S.mensagem}>Seu pedido foi recebido!</p>
+                    <p className={S.mensagem}>Pagamento confirmado! Seu pedido está sendo preparado.</p>
                 </div>
 
                 <div className={S.lista}>

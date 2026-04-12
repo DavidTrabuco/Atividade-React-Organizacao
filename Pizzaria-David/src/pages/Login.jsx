@@ -1,11 +1,13 @@
-import Login from '../components/Login/Login'
+import { useNavigate } from 'react-router'
+import LoginModal from '../components/Login/Login'
 
-export default function Login(){
+export default function LoginPage() {
+    const navigate = useNavigate()
 
-
-    return(
-        <>
-        <Login/>
-        </>
+    return (
+        <LoginModal
+            isOpen={true}
+            onClose={() => navigate('/')}
+        />
     )
 }

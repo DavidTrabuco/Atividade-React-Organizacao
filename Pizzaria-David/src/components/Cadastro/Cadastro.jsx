@@ -60,7 +60,7 @@ export default function Cadastro() {
                                 <button
                                     type="button"
                                     onClick={() => setMostrarSenha(!mostrarSenha)}
-                                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-orange-400 transition-colors duration-200"
+                                    className={CadastroStyle.mostrarSenhaBtn}
                                 >
                                     {mostrarSenha ? "🙈" : "👁️"}
                                 </button>

@@ -3,17 +3,31 @@ import { OrderStyle as S } from "./style";
 import { usePedidos } from "../../hooks/usePedidos";
 import { Pratos } from "../../share/data/pratos";
 import PedidoConfirmado from "./PedidoConfirmado";
+import Pagamentos from "./Pagamentos";
 
 export default function Pedidos() {
     const {
         nomeCliente, setNomeCliente,
         itens, adicionarItem, removerItem,
         totalCalculado,
-        erros, enviando, handleSubmit, pedidoConfirmado,
+        erros, enviando, handleSubmit,
+        pedidoPendente, handlePagamento, cancelarPagamento,
+        pedidoConfirmado,
     } = usePedidos();
 
     if (pedidoConfirmado) {
         return <PedidoConfirmado pedido={pedidoConfirmado} />;
+    }
+
+    if (pedidoPendente) {
+        return (
+            <Pagamentos
+                pedido={pedidoPendente}
+                onConfirmar={handlePagamento}
+                onCancelar={cancelarPagamento}
+                enviando={enviando}
+            />
+        );
     }
 
     return (
@@ -112,7 +126,7 @@ export default function Pedidos() {
                         </div>
 
                         <button className={S.button} type="submit" disabled={enviando}>
-                            {enviando ? 'Enviando...' : 'Confirmar Pedido'}
+                            Ir para Pagamento
                         </button>
                     </form>
 

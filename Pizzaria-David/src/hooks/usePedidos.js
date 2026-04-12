@@ -5,6 +5,7 @@ export function usePedidos() {
     const [itens, setItens] = useState([]);
     const [erros, setErros] = useState({});
     const [enviando, setEnviando] = useState(false);
+    const [pedidoPendente, setPedidoPendente] = useState(null);
     const [pedidoConfirmado, setPedidoConfirmado] = useState(null);
 
     const totalCalculado = useMemo(
@@ -36,6 +37,7 @@ export function usePedidos() {
         return novosErros;
     }
 
+    // Etapa 1: valida o pedido e avança para o pagamento
     function handleSubmit(e) {
         e.preventDefault();
         const novosErros = validar();
@@ -46,34 +48,53 @@ export function usePedidos() {
         }
 
         setErros({});
+        setPedidoPendente({
+            nomeCliente,
+            itens: itens.map((i) => i.nome),
+            itensDetalhes: itens,
+            total: totalCalculado,
+            status: 'pendente',
+        });
+    }
+
+    // Etapa 2: recebe dados do pagamento, envia pedido ao backend e confirma
+    function handlePagamento(dadosPagamento) {
         setEnviando(true);
 
         fetch('http://localhost:3000/pedidos', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                nomeCliente,
-                itens: itens.map((i) => i.nome),
-                total: totalCalculado,
-                status: 'pendente',
+                nomeCliente: pedidoPendente.nomeCliente,
+                itens: pedidoPendente.itens,
+                total: pedidoPendente.total,
+                status: 'confirmado',
+                pagamento: dadosPagamento,
             }),
         })
             .then((resposta) => resposta.json())
             .then((dados) => {
-                setPedidoConfirmado(dados);
+                setPedidoConfirmado({ ...dados, status: 'confirmado' });
                 setEnviando(false);
             })
             .catch((erro) => {
-                console.log('Erro ao fazer o pedido:', erro);
-                alert('Erro ao realizar pedido. Tente novamente!');
+                console.log('Erro ao confirmar pagamento:', erro);
+                alert('Erro ao processar pagamento. Tente novamente!');
                 setEnviando(false);
             });
+    }
+
+    function cancelarPagamento() {
+        setPedidoPendente(null);
     }
 
     return {
         nomeCliente, setNomeCliente,
         itens, adicionarItem, removerItem,
         totalCalculado,
-        erros, enviando, handleSubmit, pedidoConfirmado,
+        erros, enviando,
+        handleSubmit,
+        pedidoPendente, handlePagamento, cancelarPagamento,
+        pedidoConfirmado,
     };
 }

@@ -14,7 +14,8 @@ export const CadastroStyle = {
 
     sucess: "text-green-500 text-sm text-center mb-4",
     
-
+    mostrarSenhaBtn: "absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-orange-400 transition-colors duration-200",
+    
     form: "flex flex-col gap-5",
 
     inputGroup: "flex flex-col gap-1.5",

@@ -1,6 +1,6 @@
 export const ReservationStyle = {
 
-    section: "relative min-h-screen bg-gradient-to-br from-red-950 to-black flex items-center justify-center px-6 py-16 overflow-hidden",
+    section: "relative min-h-screen bg-gradient-to-bl from-red-950 to-black flex items-center justify-center px-6 py-16 overflow-hidden",
 
     card: "relative z-10 w-full max-w-lg bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 shadow-2xl shadow-black/60",
 
