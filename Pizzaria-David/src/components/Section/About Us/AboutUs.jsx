@@ -5,7 +5,7 @@ import PhotoMaking from "../../../share/Photo/PhotoMaking.jpg";
 
 export default function AboutUs() {
   return (
-    <section className={AboutUsStyles.section}>
+    <section className={AboutUsStyles.section} style={AboutUsStyles.sectionBg}>
 
       <div className={AboutUsStyles.sectionHeader}>
         <span className={AboutUsStyles.sectionLabel}>OUR STORY</span>

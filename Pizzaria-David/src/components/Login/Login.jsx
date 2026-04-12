@@ -28,7 +28,9 @@ export default function Login() {
                                 type="password"
                                 placeholder="Digite sua senha"
                             />
+                            <NavLink to="/cadastro" className={LoginStyle.anchor}>Sua primeira vez - Se cadastre </NavLink>
                         </div>
+                         
 
                         <button className={LoginStyle.button} type="submit">
                             Acessar

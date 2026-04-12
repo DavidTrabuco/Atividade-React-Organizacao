@@ -4,7 +4,7 @@ import { mascaraTelefone } from "./utils";
 import { useReservation } from "../../hooks/useReservation";
 
 export default function Reservation() {
-    const { nome, setNome, pessoas, setPessoas, data, setData, horario, setHorario, contato, setContato, erros, enviando, dataRef, horarioRef, handleSubmit } = useReservation();
+    const { nome, setNome, pessoas, setPessoas, data, setData, horario, setHorario, contato, setContato, erros, enviando, enviado, dataRef, horarioRef, handleSubmit } = useReservation();
 
     return (
         <>
@@ -15,6 +15,9 @@ export default function Reservation() {
                     <h1 className={ReservationStyle.title}>Reserva</h1>
                     <div className={ReservationStyle.divider}></div>
                     <h2 className={ReservationStyle.subtitle}>Faça a sua reserva</h2>
+                    <br />
+                    {enviando && <p className={ReservationStyle.sucess}>Enviando reserva...</p>}
+                    {enviado && <p className={ReservationStyle.sucess}>Reserva realizada com sucesso!</p>}
 
                     <form className={ReservationStyle.form} onSubmit={handleSubmit}>
                         <div className={ReservationStyle.inputGroup}>

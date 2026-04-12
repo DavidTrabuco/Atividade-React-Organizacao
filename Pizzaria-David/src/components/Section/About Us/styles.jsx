@@ -1,10 +1,11 @@
 export const AboutUsStyles = {
 
-  section: "bg-gradient-to-br from-red-950 to-red-900 w-full px-6 lg:px-16 py-16 flex flex-col gap-16",
+  section: "w-full px-6 lg:px-16 py-16 pt-36 flex flex-col gap-16",
+  sectionBg: { background: "linear-gradient(135deg, #0f0500 0%, #1a0800 30%, #2d1200 60%, #0a0300 100%)" },
   sectionHeader: "flex flex-col items-center text-center gap-2",
   sectionLabel: "text-orange-500 text-xl font-semibold tracking-widest uppercase drop-shadow-md animate-pulse",
   sectionDivider: "w-16 h-1 bg-orange-500 mt-2 shadow-[0_0_8px_rgba(249,115,22,0.6)]",
-  row: "flex flex-col lg:flex-row items-center gap-8 lg:gap-12",
+  row: "flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-12",
   rowReverse: "flex flex-col lg:flex-row-reverse items-center gap-8 lg:gap-12",
   textBlock: "flex flex-col gap-4 flex-1",
   imageBlock: "flex-1 w-full",

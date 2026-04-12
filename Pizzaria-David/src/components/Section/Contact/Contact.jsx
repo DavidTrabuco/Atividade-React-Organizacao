@@ -6,7 +6,7 @@ export default function Contact() {
   const { endereco, loading, error } = useEndereco();
 
   return (
-    <section className={ContactStyles.section}>
+    <section className={ContactStyles.section} style={ContactStyles.sectionBg}>
  
       {/* Header */}
       <div className={ContactStyles.header}>

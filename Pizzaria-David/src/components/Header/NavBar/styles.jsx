@@ -1,6 +1,6 @@
 
 export const NavBarStyles = {
-  backgroundColor: "bg-gradient-to-r from-red-950 to-red-900 w-full relative z-50",
+  backgroundColor: "bg-red-950/20 backdrop-blur-md w-full fixed top-0 left-0 right-0 z-50",
 
   default: "mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8 h-20",
 

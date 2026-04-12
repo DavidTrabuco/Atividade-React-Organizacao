@@ -1,5 +1,6 @@
 export const MenuStyles = {
-  section: "bg-gradient-to-br from-red-950 to-red-900 px-8 py-16",
+  section: "px-8 py-16 pt-36",
+  sectionBg: { background: "linear-gradient(135deg, #0f0500 0%, #1a0800 30%, #2d1200 60%, #0a0300 100%)" },
 
   header: "text-center max-w-xl mx-auto mb-12",
   label: "text-[#c8822a] text-xs tracking-widest font-mono uppercase border-b-2 border-[#c8822a] pb-1 mb-4 inline-block drop-shadow-sm hover:brightness-125 transition-all duration-200",
@@ -20,5 +21,9 @@ export const MenuStyles = {
   oldPrice: "text-[#6b7f74] text-sm line-through",
 
   button: "bg-[#c8822a] hover:bg-[#e09a38] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-orange-500/40 active:scale-95 text-white text-sm font-semibold px-6 py-2 rounded transition-all duration-300",
+  buttonLogin: "hidden md:block rounded-full bg-transparent border border-white/40 px-6 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:border-orange-400 hover:text-orange-400 hover:scale-105 hover:-translate-y-1 cursor-pointer mt-4 mx-auto",
+
+
 };
- 
+
+

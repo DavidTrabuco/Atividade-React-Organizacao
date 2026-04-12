@@ -1,5 +1,6 @@
 export const FooterStyle = {
-    footer: "!bg-gradient-to-b from-red-950 to-black pt-10 pb-0 mt-auto",
+    footer: "pt-10 pb-0 mt-auto",
+    footerStyle: { background: "linear-gradient(to bottom, #0a0300 0%, #050100 100%)" },
 
   bottomBar: "h-1 !bg-yellow-400 mt-8 shadow-[0_0_12px_rgba(250,204,21,0.5)]",
 

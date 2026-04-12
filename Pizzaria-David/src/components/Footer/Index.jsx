@@ -60,7 +60,7 @@ export default function Index() {
 
     return (
 
-        <footer className={FooterStyle.footer} >
+        <footer className={FooterStyle.footer} style={FooterStyle.footerStyle}>
 
             <div className={FooterStyle.grid}>
                 <HourOpen />

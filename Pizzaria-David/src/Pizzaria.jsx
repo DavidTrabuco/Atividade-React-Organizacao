@@ -4,7 +4,7 @@
 
 
 import './index.css'
-import { Routes, Route } from 'react-router'
+import { Routes, Route, Router } from 'react-router'
 import Home from './pages/Home'
 import AboutUsPage from './pages/AboutUsPage'
 import MenuPage from './pages/MenuPage'
@@ -14,6 +14,8 @@ import ContactPage from './pages/ContactPage'
 import Reservation from './components/Reservation/Reservation'
 import Login from './components/Login/Login'
 import AdminLogin from './components/AdminLogin/AdminLogin'
+import Pedidos from './pages/Pedido'
+import Cadastro from './pages/Cadastro'
 
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
                 <Route path="/reservation" element={<Reservation />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/admin/login" element={<AdminLogin />} />
+                <Route path="/order" element={<Pedidos />} />
+                <Route path="/cadastro" element={<Cadastro/>} />
             </Routes>
         </div>
     )

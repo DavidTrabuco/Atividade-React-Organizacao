@@ -4,7 +4,7 @@ import Photo  from "../../../share/Photo/PhotoSmileWithACellphone.jpg";
 export default function AppPromotion() {
   return (
     <>
-      <section className={AppPromotionStyles.section}>
+      <section className={AppPromotionStyles.section} style={AppPromotionStyles.sectionBg}>
 
         {/* Left */}
         <div className={AppPromotionStyles.left}>

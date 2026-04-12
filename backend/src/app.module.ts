@@ -4,9 +4,11 @@ import { AppService } from './app.service';
 
 import { ReservasModule } from './reservas/reservas.module';
 import { EnderecosModule } from './enderecos/enderecos.module';
+import { PedidosModule } from './pedidos/pedidos.module';
+import { CadastroModule } from './cadastro/cadastro.module';
 
 @Module({
-  imports: [ReservasModule, EnderecosModule],
+  imports: [ReservasModule, EnderecosModule, PedidosModule, CadastroModule],
   controllers: [AppController],
   providers: [AppService],
 })

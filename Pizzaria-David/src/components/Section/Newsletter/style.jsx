@@ -1,6 +1,7 @@
 export const NewsletterStyles = {
   // Section
-  section: "bg-gradient-to-br from-red-950 to-red-900 px-10 py-16",
+  section: "px-10 py-16 pt-36",
+  sectionBg: { background: "linear-gradient(135deg, #0f0500 0%, #1a0800 30%, #2d1200 60%, #0a0300 100%)" },
 
   // Header
   header: "text-center mb-10",

@@ -1,6 +1,7 @@
 export const AppPromotionStyles = {
   // Section
-  section: "flex flex-col lg:flex-row items-center bg-gradient-to-br from-red-950 to-red-900 px-10 py-16 gap-16 min-h-screen",
+  section: "flex flex-col lg:flex-row items-center px-10 py-16 pt-36 gap-16 min-h-screen",
+  sectionBg: { background: "linear-gradient(135deg, #0f0500 0%, #1a0800 30%, #2d1200 60%, #0a0300 100%)" },
 
   // Left side
   left: "flex flex-col w-full lg:w-1/2",

@@ -8,6 +8,7 @@ export function useReservation() {
     const [contato, setContato] = useState('');
     const [erros, setErros] = useState({});
     const [enviando, setEnviando] = useState(false)
+    const [enviado, setEnviado] = useState(false)
     const dataRef = useRef(null);
     const horarioRef = useRef(null);
 
@@ -96,21 +97,22 @@ export function useReservation() {
             .then((resposta) => resposta.json())
             .then((dados) => {
                 console.log('Reserva criada:', dados);
-                alert('Reserva feita com sucesso!');
+                
                 setNome('');
                 setPessoas('');
                 setData('');
                 setHorario('');
                 setContato('');
                 setEnviando(false);
+                setEnviado(true);
             })
             .catch((erro) => {
                 console.log('Error ao fazer a reserva ', erro);
-                alert('Erro ao reservar. Tente novamente!');
+                
                 setEnviando(false);
             })
 
     }
 
-    return { nome, setNome, pessoas, setPessoas, data, setData, horario, setHorario, contato, setContato, erros, enviando, dataRef, horarioRef, handleSubmit }
+    return { nome, setNome, pessoas, setPessoas, data, setData, horario, setHorario, contato, setContato, erros, enviando, enviado, dataRef, horarioRef, handleSubmit }
 }

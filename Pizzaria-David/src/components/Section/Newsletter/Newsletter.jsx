@@ -33,7 +33,7 @@ const newsletter = [
 
 export default function Newsletter() {
   return (
-    <section className={NewsletterStyles.section}>
+    <section className={NewsletterStyles.section} style={NewsletterStyles.sectionBg}>
 
       {/* Header */}
       <div className={NewsletterStyles.header}>

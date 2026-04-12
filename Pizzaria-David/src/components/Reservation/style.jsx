@@ -11,6 +11,7 @@ export const ReservationStyle = {
     divider: "w-16 h-1 bg-orange-500 mx-auto mb-4 rounded-full shadow-[0_0_8px_rgba(249,115,22,0.6)]",
 
     subtitle: "text-gray-400 text-sm text-center mb-8 leading-relaxed",
+    sucess: "text-green-500 text-sm text-center mb-4",
 
     form: "flex flex-col gap-5",
 

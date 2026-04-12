@@ -52,5 +52,5 @@ O projeto foi desenvolvido com foco em responsividade, garantindo uma boa experi
 
 
 📁 Estrutura do Projeto
-![WhatsApp Image 2026-03-23 at 16 47 25](https://github.com/user-attachments/assets/6ff85708-161b-48c4-9ce5-2a135b4ba056)
+![![alt text](image.png)](https://github.com/user-attachments/assets/6ff85708-161b-48c4-9ce5-2a135b4ba056)
 
