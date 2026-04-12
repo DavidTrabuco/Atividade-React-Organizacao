@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function usePagamento(onConfirmar) {
+export default function usePagamento(onConfirmar, pedidoId, total) {
     const [cardHolder, setCardHolder] = useState('');
     const [cardNumber, setCardNumber] = useState('');
     const [expiryDate, setExpiryDate] = useState('');
@@ -44,6 +44,16 @@ export default function usePagamento(onConfirmar) {
             metodo: 'cartao_credito',
             titular: cardHolder,
         });
+        fetch('http://localhost:3000/pagamentos', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                pedidoId: pedidoId,
+                metodo: 'cartao_credito',
+                titular: cardHolder,
+                total: total,
+            })
+        }); 
     }
 
     function formatarCartao(valor) {
