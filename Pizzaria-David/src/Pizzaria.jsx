@@ -1,10 +1,5 @@
-
-
-
-
-
 import './index.css'
-import { Routes, Route, Router } from 'react-router'
+import { Routes, Route } from 'react-router'
 import Home from './pages/Home'
 import AboutUsPage from './pages/AboutUsPage'
 import MenuPage from './pages/MenuPage'
@@ -16,7 +11,8 @@ import Login from './pages/Login'
 import AdminLogin from './components/AdminLogin/AdminLogin'
 import Pedidos from './pages/Pedido'
 import Cadastro from './pages/Cadastro'
-
+import AdminPages from './pages/AdminPages'
+import Dashboard from './components/Admin/Dashboard'
 
 function App() {
     return (
@@ -32,7 +28,14 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/admin/login" element={<AdminLogin />} />
                 <Route path="/order" element={<Pedidos />} />
-                <Route path="/cadastro" element={<Cadastro/>} />
+                <Route path="/cadastro" element={<Cadastro />} />
+                <Route path="/admin" element={<AdminPages />}>
+                    <Route index element={<Dashboard />} />
+                    <Route path="pedidos" element={<div><h1>Pedidos</h1></div>} />
+                    <Route path="reservas" element={<div><h1>Reservas</h1></div>} />
+                    <Route path="cardapio" element={<div><h1>Cardápio</h1></div>} />
+                    <Route path="admins" element={<div><h1>Admins</h1></div>} />
+                </Route>
             </Routes>
         </div>
     )

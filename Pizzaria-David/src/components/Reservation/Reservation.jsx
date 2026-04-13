@@ -87,7 +87,7 @@ export default function Reservation() {
                             {enviando ? 'Enviando...' : 'Reservar'}
                         </button>
                     </form>
-                    <button className={ReservationStyle.button}><NavLink to="/">Voltar para a página inicial</NavLink></button>
+                    <button className={ReservationStyle.buttonOutline}><NavLink to="/">Voltar para a página inicial</NavLink></button>
 
                 </div>
             </section>

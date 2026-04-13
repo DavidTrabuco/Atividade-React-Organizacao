@@ -22,4 +22,8 @@ export const ReservationStyle = {
     input: "w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-gray-600 focus:outline-none focus:border-orange-500/70 focus:ring-2 focus:ring-orange-500/20 focus:bg-white/10 transition-all duration-300",
 
     button: "w-full mt-2 py-3 bg-gradient-to-r from-orange-500 to-red-600 text-white text-sm font-bold tracking-widest uppercase rounded-xl shadow-lg shadow-orange-900/40 transition-all duration-300 hover:from-orange-400 hover:to-red-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-500/40 active:scale-95 cursor-pointer",
+    
+     buttonOutline: "w-full mt-2 py-3 bg-transparent border border-white/20 text-gray-300 text-sm font-bold tracking-widest uppercase rounded-xl transition-all duration-300 hover:border-orange-500/60 hover:text-white hover:-translate-y-1 active:scale-95 cursor-pointer",
+    
 }
+

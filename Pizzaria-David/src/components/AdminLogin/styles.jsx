@@ -23,4 +23,14 @@ export const AdminLoginStyle = {
     button: "w-full mt-2 py-3 bg-gradient-to-r from-orange-500 to-red-600 text-white text-sm font-bold tracking-widest uppercase rounded-xl shadow-lg shadow-orange-900/40 transition-all duration-300 hover:from-orange-400 hover:to-red-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-500/40 active:scale-95 cursor-pointer",
 
     buttonOutline: "w-full mt-2 py-3 bg-transparent border border-white/20 text-gray-300 text-sm font-bold tracking-widest uppercase rounded-xl transition-all duration-300 hover:border-orange-500/60 hover:text-white hover:-translate-y-1 active:scale-95 cursor-pointer",
+    
+    inputWrapper: "relative flex items-center",
+
+    mostrarSenhaBtn: "absolute right-3 text-gray-400 hover:text-orange-400 transition-colors duration-200",
+    
+    loading: "text-gray-400 text-sm text-center mt-4 animate-pulse",
+
+    error: "text-red-500 text-sm text-center mt-2",
+
 }
+
