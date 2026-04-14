@@ -14,7 +14,7 @@ export default function Dashboard() {
                 </div>
 
                 <nav className={DashboardStyle.sidebarNav}>
-                    <NavLink to="/admin" end className={({ isActive }) => isActive ? DashboardStyle.sidebarNavItemActive : DashboardStyle.sidebarNavItem}>
+                    <NavLink to="/admin" >
                         Dashboard
                     </NavLink>
                     <NavLink to="/admin/pedidos" className={({ isActive }) => isActive ? DashboardStyle.sidebarNavItemActive : DashboardStyle.sidebarNavItem}>

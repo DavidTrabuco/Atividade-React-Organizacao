@@ -9,6 +9,7 @@ export function useReservation() {
     const [erros, setErros] = useState({});
     const [enviando, setEnviando] = useState(false)
     const [enviado, setEnviado] = useState(false)
+    const [erroLogar, setErroLogar] = useState('');
     const dataRef = useRef(null);
     const horarioRef = useRef(null);
 
@@ -69,50 +70,57 @@ export function useReservation() {
         return novosErros;
     }
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        const novosErros = validar();
+function handleSubmit(e) {
+    e.preventDefault();
 
-        const erros = Object.keys(novosErros)
-        if (erros.length > 0) {
-            setErros(novosErros);
-            return;
-        }
-
-        setErros({});
-        setEnviando(true);
-
-        fetch('http://localhost:3000/reservas', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                nome: nome,
-                pessoas: Number(pessoas),
-                dataHorario: `${data}T${horario}`,
-                contato: contato,
-            }),
-        })
-            .then((resposta) => resposta.json())
-            .then((dados) => {
-                console.log('Reserva criada:', dados);
-                
-                setNome('');
-                setPessoas('');
-                setData('');
-                setHorario('');
-                setContato('');
-                setEnviando(false);
-                setEnviado(true);
-            })
-            .catch((erro) => {
-                console.log('Error ao fazer a reserva ', erro);
-                
-                setEnviando(false);
-            })
-
+    const token = localStorage.getItem('token_usuario');
+    if (!token) {
+        setErroLogar('Você precisa estar logado para fazer uma reserva!');
+        setTimeout(() => {
+        window.location.href = '/login';
+    }, 3000);
+        return;
     }
 
-    return { nome, setNome, pessoas, setPessoas, data, setData, horario, setHorario, contato, setContato, erros, enviando, enviado, dataRef, horarioRef, handleSubmit }
+    const novosErros = validar();
+
+    const erros = Object.keys(novosErros)
+    if (erros.length > 0) {
+        setErros(novosErros);
+        return;
+    }
+
+    setErros({});
+    setEnviando(true);
+
+    fetch('http://localhost:3000/reservas', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            nome: nome,
+            pessoas: Number(pessoas),
+            dataHorario: `${data}T${horario}`,
+            contato: contato,
+        }),
+    })
+        .then((resposta) => resposta.json())
+        .then((dados) => {
+            console.log('Reserva criada:', dados);
+            setNome('');
+            setPessoas('');
+            setData('');
+            setHorario('');
+            setContato('');
+            setEnviando(false);
+            setEnviado(true);
+        })
+        .catch((erro) => {
+            console.log('Error ao fazer a reserva ', erro);
+            setEnviando(false);
+        })
+}
+
+    return { nome, setNome, pessoas, setPessoas, data, setData, horario, setHorario, contato, setContato, erros, enviando, enviado, dataRef, horarioRef, handleSubmit, erroLogar , setErroLogar};
 }

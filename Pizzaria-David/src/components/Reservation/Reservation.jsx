@@ -4,7 +4,7 @@ import { mascaraTelefone } from "./utils";
 import { useReservation } from "../../hooks/useReservation";
 
 export default function Reservation() {
-    const { nome, setNome, pessoas, setPessoas, data, setData, horario, setHorario, contato, setContato, erros, enviando, enviado, dataRef, horarioRef, handleSubmit } = useReservation();
+    const { nome, setNome, pessoas, setPessoas, data, setData, horario, setHorario, contato, setContato, erros, enviando, enviado, dataRef, horarioRef, handleSubmit, erroLogar , setErroLogar } = useReservation();
 
     return (
         <>
@@ -86,6 +86,7 @@ export default function Reservation() {
                         <button className={ReservationStyle.button} type="submit" disabled={enviando}>
                             {enviando ? 'Enviando...' : 'Reservar'}
                         </button>
+                        {erroLogar && <span className={ReservationStyle.erro}>{erroLogar}</span>}
                     </form>
                     <button className={ReservationStyle.buttonOutline}><NavLink to="/">Voltar para a página inicial</NavLink></button>
 

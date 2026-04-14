@@ -25,5 +25,6 @@ export const ReservationStyle = {
     
      buttonOutline: "w-full mt-2 py-3 bg-transparent border border-white/20 text-gray-300 text-sm font-bold tracking-widest uppercase rounded-xl transition-all duration-300 hover:border-orange-500/60 hover:text-white hover:-translate-y-1 active:scale-95 cursor-pointer",
     
+     erro: "text-red-500 text-xl text-center mt-2"
 }
 

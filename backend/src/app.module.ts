@@ -5,12 +5,13 @@ import { AppService } from './app.service';
 import { ReservasModule } from './reservas/reservas.module';
 import { EnderecosModule } from './enderecos/enderecos.module';
 import { PedidosModule } from './pedidos/pedidos.module';
-import { CadastroModule } from './cadastro/cadastro.module';
+
 import { PagamentosModule } from './pagamentos/pagamentos.module';
 import { AdminModule } from './admin/admin.module';
+import { UsuariosModule } from './usuario/usuario.module';
 
 @Module({
-  imports: [ReservasModule, EnderecosModule, PedidosModule, CadastroModule, PagamentosModule, AdminModule],
+  imports: [ReservasModule, EnderecosModule, PedidosModule, PagamentosModule, AdminModule, UsuariosModule],
   controllers: [AppController],
   providers: [AppService],
 })

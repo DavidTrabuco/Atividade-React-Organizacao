@@ -37,5 +37,8 @@ export const LoginStyle = {
     buttonOutline: "w-full mt-2 py-3 bg-transparent border border-white/20 text-gray-300 text-sm font-bold tracking-widest uppercase rounded-xl transition-all duration-300 hover:border-orange-500/60 hover:text-white hover:-translate-y-1 active:scale-95 cursor-pointer",
  
     anchor: "text-orange-400 text-xs text-center mt-6 block hover:text-orange-300 underline underline-offset-4 transition-colors duration-200 cursor-pointer",
+
+    erro:"text-red-500 text-xs text-center mt-2"
 }
+
  

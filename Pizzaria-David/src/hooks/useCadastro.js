@@ -8,12 +8,11 @@ export function useCadastro() {
     const [contato, setContato] = useState("");
     const [erros, setErros] = useState({});
     const [enviado, setenviado] = useState(false);
-    
 
     function validar() {
         const novosErros = {};
 
-        if(!nome.trim()) {
+        if (!nome.trim()) {
             novosErros.nome = 'Nome é obrigatório';
         } else if (/\d/.test(nome)) {
             novosErros.nome = 'Nome não pode conter números';
@@ -32,6 +31,7 @@ export function useCadastro() {
         } else if (password !== confirmPassword) {
             novosErros.senha = 'As senhas não coincidem';
         }
+
         if (!contato.trim()) {
             novosErros.contato = 'Contato é obrigatório';
         } else {
@@ -42,8 +42,6 @@ export function useCadastro() {
                 novosErros.contato = 'Telefone inválido';
             }
         }
-
-
 
         return novosErros;
     }
@@ -61,26 +59,25 @@ export function useCadastro() {
         setErros({});
         setenviado(true);
 
-        fetch('http://localhost:3000/cadastro', {
+        fetch('http://localhost:3000/usuarios/cadastrar', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ nome: nome, email: email, senha: password, telefone: contato })
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ nome, email, senha: password, telefone: contato })
         })
         .then(response => response.json())
-        .then(data => {
-            console.log("Cadastro Efetuado:", data);
-            setNome('');
-            setEmail('');
-            setPassword('');
-            setConfirmPassword('');
-            setContato('');
+        .then(dados => {
+            if (dados.token) {
+                localStorage.setItem('token_usuario', dados.token);
+                window.location.href = '/';
+            } else {
+                setErros({ geral: dados.mensagem || 'Erro ao cadastrar.' });
+            }
         })
         .catch(error => {
             console.error("Erro ao enviar dados:", error);
+            setErros({ geral: 'Erro ao conectar com o servidor.' });
         });
     }
 
-    return { nome, setNome, email, setEmail, password, setPassword, confirmPassword, setConfirmPassword,contato, setContato, erros, enviado, handleSubmit };
+    return { nome, setNome, email, setEmail, password, setPassword, confirmPassword, setConfirmPassword, contato, setContato, erros, enviado, handleSubmit };
 }
