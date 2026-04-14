@@ -41,10 +41,10 @@ export default function PedidoConfirmado({ pedido }) {
                 </div>
 
                 <button className={S.buttonVoltar}>
-                    <NavLink to="/Order">Fazer outro pedido</NavLink>
+                    <NavLink to="/menu">Fazer outro pedido</NavLink>
                 </button>
                 <button className={S.buttonVoltar}>
-                    <NavLink to="/menu">Voltar para o Menu</NavLink>
+                    <NavLink to="/">Voltar para o início</NavLink>
                 </button>
             </div>
         </section>
