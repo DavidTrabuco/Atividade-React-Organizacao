@@ -29,6 +29,8 @@ export default function useAdminLogin() {
         const token = localStorage.getItem('token_admin');
         if (token) {
             navegar('/admin');
+        }else{
+            navegar('/admin/login')
         }
     }, []);
 
@@ -59,7 +61,8 @@ export default function useAdminLogin() {
             } else {
                 setErro(dados.mensagem || 'Email ou senha incorretos.');
             }
-        } catch {
+        } catch(error) {
+            console.log(error)
             setErro('Erro ao conectar com o servidor.');
         } finally {
             setCarregando(false);
